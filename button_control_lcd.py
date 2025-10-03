@@ -2,7 +2,6 @@ from gpiozero import Button
 from RPLCD.i2c import CharLCD
 
 
-# Setup LCD (I2C address usually 0x27, 16x2 L# Setup button (GPIO17)
 lcd = Charlcd('PCF8574', 0x27)
 
 # defining 2 buttons and their gpio pins
