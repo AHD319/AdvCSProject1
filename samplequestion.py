@@ -17,19 +17,19 @@ button4 = Button(22, pull_up=True)
 
 question = "     print('Hello World') prints..."
 options = ["     1. hello", "2. hello world", "3. Hello World", "4. world"]
-#turning array into string by seperating each element with "|"
+#turning array into string by separating each element with "|"
 options_string = " | ".join(options)
-# indentitfy correct button (corresponding to answer)
+# identify the correct button (corresponding to the answer)
 correct_button = button3
 
-# manual scroll because question is long, the number of loops is the number of characters being shifted. Its calauclated by subtratcing number of letters in question by the width of the lcd and adding 1 because im using slice function that removes last letter
+# manual scroll because the question is long, the number of loops is the number of characters being shifted. It's calculated by subtracting number of letters in question by the width of the lcd and adding 1 because im using slice function that removes last letter
 for i in range(len(question)-width+1):
-    # adding position of where text starts (not neccessary because already default)
+    # adding position of where text starts (not necessary because already default)
     lcd.cursor_pos = (0,0)
-    # this shifts the string each loop, when i is 0 it would go from 0:16 filiing the row ("     print("hel") each time i increases, the whole string shifts and the question reveals, the i+width gives the end of the string
+    # this shifts the string each loop, when i is 0 ,it would go from 0:16 filling the row until 16 characters ("     print("hel") each time i increases, the whole string shifts and the question reveals, the i+width gives the end of the string
     lcd.write_string(question[i:i+width])
     time.sleep(0.5)
-    # delay transition for thinking
+    # delay transition for thinking and clearing question on display
 time.sleep(3)
 lcd.clear()
 for i in range(len(options_string)-width+1):
